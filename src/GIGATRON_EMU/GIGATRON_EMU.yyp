@@ -26,9 +26,7 @@
     {"$GMFolder":"","%Name":"Tile Sets","folderPath":"folders/Tile Sets.yy","name":"Tile Sets","resourceType":"GMFolder","resourceVersion":"2.0",},
     {"$GMFolder":"","%Name":"Timelines","folderPath":"folders/Timelines.yy","name":"Timelines","resourceType":"GMFolder","resourceVersion":"2.0",},
   ],
-  "IncludedFiles":[
-    {"$GMIncludedFile":"","%Name":"ROMv4.rom","CopyToMask":-1,"filePath":"datafiles","name":"ROMv4.rom","resourceType":"GMIncludedFile","resourceVersion":"2.0",},
-  ],
+  "IncludedFiles":[],
   "isEcma":false,
   "LibraryEmitters":[],
   "MetaData":{
@@ -38,6 +36,9 @@
   "resources":[
     {"id":{"name":"obj_emulator","path":"objects/obj_emulator/obj_emulator.yy",},},
     {"id":{"name":"Room1","path":"rooms/Room1/Room1.yy",},},
+    {"id":{"name":"cpu_cycle","path":"scripts/cpu_cycle/cpu_cycle.yy",},},
+    {"id":{"name":"garble","path":"scripts/garble/garble.yy",},},
+    {"id":{"name":"get_input","path":"scripts/get_input/get_input.yy",},},
   ],
   "resourceType":"GMProject",
   "resourceVersion":"2.0",

@@ -16,5 +16,8 @@
     {"name":"Tile Sets","order":2,"path":"folders/Tile Sets.yy",},
     {"name":"Timelines","order":8,"path":"folders/Timelines.yy",},
   ],
-  "ResourceOrderSettings":[],
+  "ResourceOrderSettings":[
+    {"name":"cpu_cycle","order":2,"path":"scripts/cpu_cycle/cpu_cycle.yy",},
+    {"name":"get_input","order":1,"path":"scripts/get_input/get_input.yy",},
+  ],
 }

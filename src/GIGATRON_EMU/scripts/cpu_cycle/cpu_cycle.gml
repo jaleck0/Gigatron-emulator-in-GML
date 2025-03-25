@@ -9,6 +9,16 @@ function cpu_cycle( _newstate)
 	buffer_poke( oldstate, REG.IR, buffer_u8, buffer_peek( _newstate, buffer_peek( oldstate, REG.PC_0, buffer_u16) * 2, buffer_u8));
 	buffer_poke( oldstate, REG.D,  buffer_u8, buffer_peek( _newstate, buffer_peek( oldstate, REG.PC_0, buffer_u16), buffer_u8));
 	
+	var tins = buffer_peek( _newstate, REG.IR, buffer_u8) >> 5;
+	var tmod = (buffer_peek( _newstate, REG.IR, buffer_u8) >> 2) & 7;
+	var tbus = buffer_peek( _newstate, REG.IR, buffer_u8) & 3;
+	
+	var tw = (tins == 6);
+	var tj = (tins == 7);
+	
+	var lo = buffer_peek( _newstate, REG.D, buffer_u8)
+	var hi = 0;
+	
 	
 	return oldstate;
 }

@@ -39,6 +39,7 @@
     {"id":{"name":"cpu_cycle","path":"scripts/cpu_cycle/cpu_cycle.yy",},},
     {"id":{"name":"garble","path":"scripts/garble/garble.yy",},},
     {"id":{"name":"get_input","path":"scripts/get_input/get_input.yy",},},
+    {"id":{"name":"scount","path":"scripts/scount/scount.yy",},},
   ],
   "resourceType":"GMProject",
   "resourceVersion":"2.0",

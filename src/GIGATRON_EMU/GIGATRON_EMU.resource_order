@@ -19,5 +19,6 @@
   "ResourceOrderSettings":[
     {"name":"cpu_cycle","order":2,"path":"scripts/cpu_cycle/cpu_cycle.yy",},
     {"name":"get_input","order":1,"path":"scripts/get_input/get_input.yy",},
+    {"name":"scount","order":3,"path":"scripts/scount/scount.yy",},
   ],
 }

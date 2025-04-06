@@ -24,12 +24,20 @@ SIZE_RAM = 1<<15;
 SIZE_REG = 9;
 
 current_state = buffer_create( SIZE_REG, buffer_fast, 1);
+new_state = buffer_create( SIZE_REG, buffer_fast, 1);
 
 FRAME = buffer_create( FBUFF_WIDTH * VGA_HEIGTH, buffer_fast, 1);
 
 ROM = buffer_create( SIZE_ROM, buffer_fast, 1);
 RAM = buffer_create( SIZE_RAM, buffer_fast, 1);
 input = 0xff;
+
+hsync = 0;
+vsync = 0;
+
+garble(current_state, SIZE_REG)
+garble(ROM, SIZE_ROM)
+garble(RAM, SIZE_RAM)
 
 t = -2;
 

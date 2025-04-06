@@ -1,10 +1,7 @@
 /// @description Insert description here
 // You can write your code in this editor
 
-//for (var i = 0; i<256; i++)
-//{
-//	draw_text(32*(i%16),32*floor(i/16),  string(buffer_peek(ROM,i,buffer_u8)))
-//}
+
 for(var vy = 0; vy < VGA_HEIGTH; vy++)
 {
 	for(var vx = 0; vx < FBUFF_WIDTH; vx++)
@@ -13,6 +10,19 @@ for(var vy = 0; vy < VGA_HEIGTH; vy++)
 		draw_line( vx*4, vy, vx*4+4, vy)
 	}
 }
-
 draw_set_colour(c_white)    
-draw_text(600,32, input)
+
+for (var i = 0; i<SIZE_REG; i++)
+{
+	draw_text(32,32*i,  string(buffer_peek(current_state,i,buffer_u8)))
+}
+
+
+draw_text(550,32, input)
+
+draw_text(550,64, t)
+
+
+
+draw_text(550, 96, hsync)
+draw_text(550, 128, vsync)

@@ -9,7 +9,7 @@
   "option_draw_colour":4294967295,
   "option_gameguid":"21ab1087-0638-4094-a42c-669640b59c6b",
   "option_gameid":"0",
-  "option_game_speed":60,
+  "option_game_speed":120,
   "option_legacy_json_parsing":false,
   "option_legacy_number_conversion":false,
   "option_legacy_other_behaviour":false,

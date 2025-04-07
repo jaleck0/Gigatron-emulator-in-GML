@@ -26,16 +26,16 @@ function cpu_cycle( _newstate)
 	if(!tj)
 	{
 		//#macro E(p) (tw?0:p)
-		switch(tmod)
+		switch(tmod) 
 		{
-            case 0: to = tw ? 0 : REG.AC; break;
-            case 1: to = tw ? 0 : REG.AC; lo = buffer_peek(_newstate, REG.X, buffer_u8); break;
-            case 2: to = tw ? 0 : REG.AC; hi = buffer_peek(_newstate, REG.Y, buffer_u8); break;
-            case 3: to = tw ? 0 : REG.AC; lo = buffer_peek(_newstate, REG.X, buffer_u8); hi = buffer_peek(_newstate, REG.Y, buffer_u8); break;
-            case 4: to = REG.X; break;
-            case 5: to = REG.Y; break;
-            case 6: to = tw ? 0 : REG.OUTPUT; break;
-            case 7: to = tw ? 0 : REG.OUTPUT; lo = buffer_peek(_newstate, REG.X, buffer_u8); hi = buffer_peek(_newstate, REG.Y, buffer_u8); incX = 1; break;
+            case 0: toP = tw ? 0 : REG.AC; break;
+            case 1: toP = tw ? 0 : REG.AC; lo = buffer_peek(_newstate, REG.X, buffer_u8); break;
+            case 2: toP = tw ? 0 : REG.AC; hi = buffer_peek(_newstate, REG.Y, buffer_u8); break;
+            case 3: toP = tw ? 0 : REG.AC; lo = buffer_peek(_newstate, REG.X, buffer_u8); hi = buffer_peek(_newstate, REG.Y, buffer_u8); break;
+            case 4: toP = REG.X; break;
+            case 5: toP = REG.Y; break;
+            case 6: toP = tw ? 0 : REG.OUTPUT; break;
+            case 7: toP = tw ? 0 : REG.OUTPUT; lo = buffer_peek(_newstate, REG.X, buffer_u8); hi = buffer_peek(_newstate, REG.Y, buffer_u8); incX = 1; break;
 			
 		}
 	}
@@ -68,23 +68,12 @@ function cpu_cycle( _newstate)
         case 4: ALU = buffer_peek( _newstate, REG.AC, buffer_u8) + tB; break;
         case 5: ALU = buffer_peek( _newstate, REG.AC, buffer_u8) - tB; break;
         case 6: ALU = buffer_peek( _newstate, REG.AC, buffer_u8) break;
-        case 7: ALU = -buffer_peek( _newstate, REG.AC, buffer_u8) break;
+        case 7: ALU = buffer_peek( _newstate, REG.AC, buffer_u8) | 128 break;
     }
 	
 	if (toP) 
 	{
-		t = ALU;
-		switch(tmod)
-		{
-            case 0: buffer_poke(oldstate, tw ? 0 : REG.AC, buffer_u8, ALU); break;
-            case 1: buffer_poke(oldstate, tw ? 0 : REG.AC, buffer_u8, ALU); break;
-            case 2: buffer_poke(oldstate, tw ? 0 : REG.AC, buffer_u8, ALU); break;
-            case 3: buffer_poke(oldstate, tw ? 0 : REG.AC, buffer_u8, ALU); break;
-            case 4: buffer_poke(oldstate, tw ? 0 : REG.X, buffer_u8, ALU); break;
-            case 5: buffer_poke(oldstate, tw ? 0 : REG.Y, buffer_u8, ALU); break;
-            case 6: buffer_poke(oldstate, tw ? 0 : REG.OUTPUT, buffer_u8, ALU); break;
-            case 7: buffer_poke(oldstate, tw ? 0 : REG.OUTPUT, buffer_u8, ALU); break;
-		}
+		buffer_poke(oldstate, toP, buffer_u8, ALU);
 	}
 	
 	if (incX) 
